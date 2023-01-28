@@ -1,0 +1,3 @@
+[submodule "submodules/opaque-wasm"]
+	path = submodules/opaque-wasm
+	url = https://github.com/47ng/opaque-wasm.git
