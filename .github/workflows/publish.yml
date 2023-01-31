@@ -45,29 +45,11 @@ jobs:
 
       - name: Show package contents
         run: |
-          cat ./packages/server/package.json
           cat ./packages/client/package.json
+          cat ./packages/server/package.json
 
-      - name: Pack server
-        run: pnpm pack
-        working-directory: packages/server
+      - name: Publish NPM packages
+        run: pnpm publish --recursive --filter ./packages --tag beta --no-git-checks --dry-run
         env:
-          SCEAU_PRIVATE_KEY: ${{ secrets.SCEAU_PRIVATE_KEY }}
-
-      - name: Pack client
-        run: pnpm pack
-        working-directory: packages/client
-        env:
-          SCEAU_PRIVATE_KEY: ${{ secrets.SCEAU_PRIVATE_KEY }}
-
-      - name: Save client tarball as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: client
-          path: packages/client/*.tgz
-
-      - name: Save server tarball as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: server
-          path: packages/server/*.tgz
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
