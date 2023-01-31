@@ -68,6 +68,8 @@ sequenceDiagram
         "noteAlign": "left"
       }
     }%%
+    accTitle: Registration
+    accDescr: Sequence diagram of the OPAQUE registration protocol
     actor C as Client
     participant S as Server
     participant D as Database
@@ -151,6 +153,8 @@ sequenceDiagram
         "noteAlign": "left"
       }
     }%%
+    accTitle: Login
+    accDescr: Sequence diagram of the OPAQUE login protocol
     actor C as Client
     participant S as Server
     participant D as Database

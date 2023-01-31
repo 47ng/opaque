@@ -8,7 +8,8 @@ version=$1
 
 cd $(dirname $0)/..
 repoRoot=$(pwd)
-echo $repoRoot
+
+PATH=$PATH:$repoRoot/node_modules/.bin
 
 echo "[@47ng/opaque-server] Patching in packages/server"
 cd $repoRoot/packages/server
@@ -28,7 +29,7 @@ else
   echo "[@47ng/opaque-server] Keeping version $(pnpm pkg get version)"
 fi
 # Override docs
-cp -f $repoRoot/docs/server.md README.md
+mmdc -i $repoRoot/docs/server.md -o README.md
 # Code signature using https://github.com/47ng/sceau
 pnpm add -D sceau
 pnpm pkg set "files[]=sceau.json"
@@ -57,7 +58,7 @@ else
   echo "[@47ng/opaque-client] Keeping version $(pnpm pkg get version)"
 fi
 # Override docs
-cp -f $repoRoot/docs/client.md README.md
+mmdc -i $repoRoot/docs/client.md -o README.md
 # Code signature using https://github.com/47ng/sceau
 pnpm add -D sceau
 pnpm pkg set "files[]=sceau.json"
