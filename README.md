@@ -4,8 +4,8 @@ OPAQUE key exchange for Node.js (CJS) and browsers (ESM) via WebAssembly.
 
 ## Packages
 
-- [`@47ng/opaque-client`](https://npmjs.com/packages/@47ng/opaque-client) - Browser client (ESM)
-- [`@47ng/opaque-server`](https://npmjs.com/packages/@47ng/opaque-server) - Node.js server (CJS)
+- [`@47ng/opaque-client`](https://npmjs.com/package/@47ng/opaque-client) - Browser client (ESM)
+- [`@47ng/opaque-server`](https://npmjs.com/package/@47ng/opaque-server) - Node.js server (CJS)
 
 ## Code signature
 
