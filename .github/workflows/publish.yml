@@ -30,11 +30,9 @@ jobs:
           profile: minimal
           toolchain: stable
       - name: Install wasm-pack
-        uses: actions-rs/install@v0.1
+        uses: jetli/wasm-pack-action@v0.4.0
         with:
-          crate: wasm-pack
-          version: latest
-          use-tool-cache: true
+          version: 'latest'
 
       - name: Install dependencies
         run: pnpm install
