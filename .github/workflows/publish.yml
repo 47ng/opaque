@@ -2,6 +2,8 @@ name: Publish
 on:
   release:
     types: [published]
+  push:
+  workflow_dispatch:
 
 env:
   FORCE_COLOR: 3
@@ -12,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: pnpm/action-setup@v2
         with:
           version: 7
@@ -22,6 +23,18 @@ jobs:
         with:
           node-version: lts/*
           cache: pnpm
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+      - name: Install wasm-pack
+        uses: actions-rs/install@v0.1
+        with:
+          crate: wasm-pack
+          version: latest
+          use-tool-cache: true
 
       - name: Install dependencies
         run: pnpm install
