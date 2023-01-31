@@ -1,0 +1,8 @@
+{
+  "name": "@47ng/config-typescript",
+  "version": "0.0.0-internal",
+  "private": true,
+  "files": [
+    "tsconfig.base.json"
+  ]
+}

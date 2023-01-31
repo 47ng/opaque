@@ -1,0 +1,62 @@
+name: Publish
+on:
+  release:
+    types: [published]
+
+env:
+  FORCE_COLOR: 3
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build WASM
+        run: pnpm run build
+
+      - name: Patch packages
+        run: ./scripts/patch-packages.sh ${{ github.ref }}
+
+      - name: Show package contents
+        run: |
+          cat ./packages/server/package.json
+          cat ./packages/client/package.json
+
+      - name: Pack server
+        run: pnpm pack
+        working-directory: packages/server
+        env:
+          SCEAU_PRIVATE_KEY: ${{ secrets.SCEAU_PRIVATE_KEY }}
+
+      - name: Pack client
+        run: pnpm pack
+        working-directory: packages/client
+        env:
+          SCEAU_PRIVATE_KEY: ${{ secrets.SCEAU_PRIVATE_KEY }}
+
+      - name: Save client tarball as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: client
+          path: packages/client/*.tgz
+
+      - name: Save server tarball as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: server
+          path: packages/server/*.tgz

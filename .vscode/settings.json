@@ -1,0 +1,3 @@
+{
+  "rust-analyzer.linkedProjects": ["submodules/opaque-wasm/Cargo.toml"]
+}
