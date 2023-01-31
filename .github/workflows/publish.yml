@@ -41,7 +41,7 @@ jobs:
         run: pnpm run build
 
       - name: Patch packages
-        run: ./scripts/patch-packages.sh ${{ github.ref }}
+        run: ./scripts/patch-packages.sh ${{ github.ref_name }}
 
       - name: Show package contents
         run: |
