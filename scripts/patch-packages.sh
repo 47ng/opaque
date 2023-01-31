@@ -18,7 +18,7 @@ pnpm pkg set type=commonjs
 # Metadata
 pnpm pkg set name=@47ng/opaque-server
 pnpm pkg set "collaborators[]=François Best <npm.opaque@francoisbest.com>"
-pnpm pkg set repository.url=https://github.com/47ng/opaque-wasm.git
+pnpm pkg set repository.url=https://github.com/47ng/opaque.git
 pnpm pkg set repository.directory=packages/server
 pnpm pkg set license="(Apache-2.0 OR MIT)"
 pnpm pkg set publishConfig.access=public
@@ -48,7 +48,7 @@ pnpm pkg set --json exports="{\".\":{\"import\":\"./opaque_wasm.js\",\"types\":\
 # Metadata
 pnpm pkg set name=@47ng/opaque-client
 pnpm pkg set "collaborators[]=François Best <npm.opaque@francoisbest.com>"
-pnpm pkg set repository.url=https://github.com/47ng/opaque-wasm.git
+pnpm pkg set repository.url=https://github.com/47ng/opaque.git
 pnpm pkg set repository.directory=packages/client
 pnpm pkg set license="(Apache-2.0 OR MIT)"
 pnpm pkg set publishConfig.access=public
