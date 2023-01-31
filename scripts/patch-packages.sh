@@ -30,6 +30,7 @@ else
 fi
 # Override docs
 mmdc -i $repoRoot/docs/server.md -o README.md
+pnpm pkg set "files[]=README-*.svg"
 # Code signature using https://github.com/47ng/sceau
 pnpm add -D sceau
 pnpm pkg set "files[]=sceau.json"
@@ -59,6 +60,7 @@ else
 fi
 # Override docs
 mmdc -i $repoRoot/docs/client.md -o README.md
+pnpm pkg set "files[]=README-*.svg"
 # Code signature using https://github.com/47ng/sceau
 pnpm add -D sceau
 pnpm pkg set "files[]=sceau.json"
