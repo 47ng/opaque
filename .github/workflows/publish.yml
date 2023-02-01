@@ -52,7 +52,7 @@ jobs:
           cat ./packages/server/package.json
 
       - name: Publish NPM packages
-        run: pnpm publish --recursive --tag beta --no-git-checks
+        run: pnpm publish --recursive --tag beta
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
