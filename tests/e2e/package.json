@@ -12,7 +12,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "start": "next start",
+    "test": "playwright test"
   },
   "dependencies": {
     "@47ng/codec": "^1.1.0",
@@ -31,9 +33,11 @@
   },
   "devDependencies": {
     "@babel/core": ">=7.0.0 <8.0.0",
+    "@playwright/test": "^1.30.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "playwright": "^1.30.0",
     "typescript": "^4.9.5"
   }
 }
