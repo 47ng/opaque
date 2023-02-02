@@ -99,7 +99,8 @@ async function opaqueRegistrationRecord(request, response) {
   })
   await keyValueStore.del({ key: request.body.nonce })
   response.status(204).send()
-  registration.free()
+  // Note: there is no need to free the `registration` object here,
+  // it's been taken care of by the call to `finish`.
 }
 ```
 
