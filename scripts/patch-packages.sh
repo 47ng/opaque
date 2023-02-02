@@ -42,7 +42,7 @@ echo "[@47ng/opaque-client] Patching in packages/client"
 cd $repoRoot/packages/client
 # Explicit package type and add ESM exports
 pnpm pkg set type=module
-pnpm pkg set --json exports="{\".\":{\"import\":\"./opaque_wasm.js\",\"types\":\"./opaque_wasm.d.ts\"}}"
+pnpm pkg set --json exports="{\".\":{\"import\":\"./opaque-client.js\",\"types\":\"./opaque-client.d.ts\"}}"
 # Metadata
 pnpm pkg set name=@47ng/opaque-client
 pnpm pkg set "collaborators[]=François Best <npm.opaque@francoisbest.com>"
