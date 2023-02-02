@@ -1,0 +1,39 @@
+{
+  "name": "@47ng/opaque-tests-e2e",
+  "version": "0.0.0",
+  "private": true,
+  "description": "End-to-end testing client/server protocol via the JS API",
+  "license": "MIT",
+  "author": {
+    "name": "François Best",
+    "email": "npm.opaque@francoisbest.com",
+    "url": "https://francoisbest.com"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build"
+  },
+  "dependencies": {
+    "@47ng/codec": "^1.1.0",
+    "@47ng/opaque-client": "^0.0.1-beta.15",
+    "@47ng/opaque-server": "^0.0.1-beta.15",
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "framer-motion": "^9.0.1",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.0",
+    "react-icons": "^4.7.1",
+    "zod": "^3.20.2"
+  },
+  "devDependencies": {
+    "@babel/core": ">=7.0.0 <8.0.0",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "typescript": "^4.9.5"
+  }
+}
