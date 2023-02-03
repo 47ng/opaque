@@ -4,8 +4,7 @@ The OPAQUE key exchange protocol in WASM (WebAssembly), for Node.js.
 This implementation is based on [facebook/opaque-ke](https://github.com/facebook/opaque-ke).
 
 Built as CJS for Node.js from [47ng/opaque-wasm](https://github.com/47ng/opaque-wasm/tree/fork/47ng-opaque/do-not-merge-to-upstream)
-_(a fork of [marucjmar/opaque-wasm](https://github.com/marucjmar/opaque-wasm)
-to allow server/server WASM code splitting, statelessness for the server, and uses Ristretto rather than the NIST P-256 curve)_.
+_(a fork of [marucjmar/opaque-wasm](https://github.com/marucjmar/opaque-wasm) using Ristretto rather than the NIST P-256 curve)_.
 
 Client (browser) counterpart is available in [`@47ng/opaque-client`](https://npmjs.com/package/@47ng/opaque-client).
 
