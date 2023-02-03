@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@47ng/codec": "^1.1.0",
-    "@47ng/opaque-client": "^0.0.1-beta.15",
-    "@47ng/opaque-server": "^0.0.1-beta.15",
+    "@47ng/opaque-client": "^0.0.1-beta.16",
+    "@47ng/opaque-server": "^0.0.1-beta.16",
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
