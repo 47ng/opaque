@@ -158,6 +158,7 @@ async function opaqueLoginFinal(request, response) {
   await keyValueStore.del({ key: request.body.nonce })
   response.setAuthCookiesFor(username)
   response.send(...)
-  login.free()
+  // Note: there is no need to free the `login` object here,
+  // it's been taken care of by the call to `finish`.
 }
 ```
