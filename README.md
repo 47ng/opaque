@@ -16,6 +16,14 @@ and can be verified with the following public key:
 sceau verify --publicKey 5ac3e4d721755717f07d2af2fc8814c28b8265390d195644ccbf4141a7483564
 ```
 
+## Versioning
+
+This project does not follow SemVer, but instead follows the Major and Minor
+versions of the underlying Rust crate in [`submodules/opaque-wasm`](./submodules/opaque-wasm/).
+
+Patch versions may be upgraded when the need arises, and will not contain
+breaking changes.
+
 ## License
 
 Dual-licensed Apache-2.0 and MIT.
