@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@47ng/codec": "^1.1.0",
-    "@47ng/opaque-client": "^0.0.1-beta.16",
-    "@47ng/opaque-server": "^0.0.1-beta.16",
+    "@47ng/opaque-client": "^2.1.0",
+    "@47ng/opaque-server": "^2.1.0",
     "@chakra-ui/react": "^2.4.9",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -32,7 +32,7 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@babel/core": ">=7.0.0 <8.0.0",
+    "@babel/core": "^7.20.12",
     "@playwright/test": "^1.30.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
