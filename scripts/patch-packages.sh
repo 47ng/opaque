@@ -44,8 +44,8 @@ echo -n "export const wasmBase64 = '" > inline-wasm.js
 echo -n "$(cat opaque-client_bg.wasm | base64)" >> inline-wasm.js
 echo "';" >> inline-wasm.js
 echo "export const wasmBase64: string" > inline-wasm.d.ts
-pnpm pkg set "files[]=inline.wasm.js"
-pnpm pkg set "files[]=inline.wasm.d.ts"
+pnpm pkg set "files[]=inline-wasm.js"
+pnpm pkg set "files[]=inline-wasm.d.ts"
 # Explicit package type and add ESM exports
 pnpm pkg set type=module
 pnpm pkg set --json exports="{              \
