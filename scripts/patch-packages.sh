@@ -28,7 +28,6 @@ else
 fi
 # Override docs
 cp -f $repoRoot/docs/server.md README.md
-pnpm pkg set "files[]=README-*.svg"
 # Code signature using https://github.com/47ng/sceau
 pnpm add -D sceau
 pnpm pkg set "files[]=sceau.json"
@@ -40,9 +39,25 @@ echo "[@47ng/opaque-server] Patched successfully"
 
 echo "[@47ng/opaque-client] Patching in packages/client"
 cd $repoRoot/packages/client
+# Provide Base64-inlined WASM to ease with bundling
+echo -n "export const wasmBase64 = '" > inline-wasm.js
+echo -n "$(cat opaque-client_bg.wasm | base64)" >> inline-wasm.js
+echo "';" >> inline-wasm.js
+echo "export const wasmBase64: string" > inline-wasm.d.ts
+pnpm pkg set "files[]=inline.wasm.js"
+pnpm pkg set "files[]=inline.wasm.d.ts"
 # Explicit package type and add ESM exports
 pnpm pkg set type=module
-pnpm pkg set --json exports="{\".\":{\"import\":\"./opaque-client.js\",\"types\":\"./opaque-client.d.ts\"}}"
+pnpm pkg set --json exports="{              \
+  \".\":{                                   \
+    \"import\":\"./opaque-client.js\",      \
+    \"types\":\"./opaque-client.d.ts\"      \
+  },                                        \
+  \"./inline-wasm\":{                       \
+    \"import\":\"./inline-wasm.js\",        \
+    \"types\":\"./inline-wasm.d.ts\"        \
+  }                                         \
+}"
 # Metadata
 pnpm pkg set name=@47ng/opaque-client
 pnpm pkg set "collaborators[]=François Best <npm.opaque@francoisbest.com>"
@@ -58,7 +73,6 @@ else
 fi
 # Override docs
 cp -f $repoRoot/docs/client.md README.md
-pnpm pkg set "files[]=README-*.svg"
 # Code signature using https://github.com/47ng/sceau
 pnpm add -D sceau
 pnpm pkg set "files[]=sceau.json"
