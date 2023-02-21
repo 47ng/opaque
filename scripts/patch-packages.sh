@@ -41,7 +41,7 @@ echo "[@47ng/opaque-client] Patching in packages/client"
 cd $repoRoot/packages/client
 # Provide Base64-inlined WASM to ease with bundling
 echo -n "export const wasmBase64 = '" > inline-wasm.js
-echo -n "$(cat opaque-client_bg.wasm | base64)" >> inline-wasm.js
+echo -n "$(cat opaque-client_bg.wasm | base64 | tr -d '\n')" >> inline-wasm.js
 echo "';" >> inline-wasm.js
 echo "export const wasmBase64: string" > inline-wasm.d.ts
 pnpm pkg set "files[]=inline-wasm.js"
