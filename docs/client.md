@@ -69,9 +69,9 @@ async function clientLogin(username: string, password: string) {
   const login = new Login()
   const loginRequest = login.start(password)
   const {
-    data: { nonce, loginReponse },
+    data: { nonce, loginResponse },
   } = await sendToServer(username, loginRequest)
-  const loginFinal = login.finish(password, loginReponse)
+  const loginFinal = login.finish(password, loginResponse)
   const { status } = await sendToServer(nonce, loginFinal)
   const sessionKey = login.getSessionKey()
   login.free()
