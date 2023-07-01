@@ -152,7 +152,7 @@ async function opaqueLoginFinal(request, response) {
   const { username, loginState } = await keyValueStore.get({
     key: request.body.nonce,
   })
-  const login = HandleLogin.deserialize(loginState)
+  const login = HandleLogin.deserialize(loginState, serverSetup)
   const sessionKey = login.finish(request.body.loginFinal)
   await keyValueStore.del({ key: request.body.nonce })
   response.setAuthCookiesFor(username)
